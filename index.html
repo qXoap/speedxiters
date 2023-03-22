@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Speed Xiters</title>
+    <title id="init">Speed Xiters</title>
 </head>
 <body>
 
@@ -17,7 +17,7 @@
         </div>
 
         <nav class="navbar">
-            <a href="#">Inicio</a>
+            <a href="#init">Inicio</a>
             <a href="#team">Team</a>
             <a href="https://discord.gg/RD4VD2GqYq" target="_blank">Discord</a>
             <a href="#produtos">Productos</a>
@@ -116,4 +116,22 @@
    </section>
     
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("a").on('click', function(event) {
+        if (this.hash !== "") {
+            event.preventDefault();
+
+            var hash = this.hash;
+            $('html, body').animate({
+            scrollTop: $(hash).offset().top
+            }, 1000, function(){
+                window.location.hash = hash;
+             });
+            }
+        });
+    });
+</script>
 </html>
